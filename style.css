@@ -80,18 +80,36 @@ body {
 }
 
 .avatar {
-  width: 72px; height: 72px;
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  width: 100px; height: 100px;
   border-radius: 50%;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.65), 0 0 0 6px rgba(59,130,246,0.15);
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px;
-  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.avatar-fallback {
+  font-size: 26px;
   font-weight: 800;
   color: white;
   letter-spacing: -0.5px;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.22);
+  user-select: none;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -575,6 +593,8 @@ footer {
 @media (max-width: 768px) {
   .hero { padding: 56px 0 48px; }
   .card { padding: 24px 20px; }
+  .avatar { width: 82px; height: 82px; }
+  .avatar-fallback { font-size: 22px; }
 
   .focus-grid { grid-template-columns: 1fr; gap: 14px; }
 
